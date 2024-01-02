@@ -1,8 +1,12 @@
 .App {
   font-family: "Times New Roman", Times, serif;
+  text-align: center;
 }
 .App-header {
   text-align: center;
   margin: 30px 0;
   font-size: 26px;
+}
+.footer {
+  margin: 30px;
 }

@@ -1,4 +1,5 @@
 import "./App.css";
+import Dictionary from "./Dictionary";
 
 function App() {
   return (
@@ -6,6 +7,15 @@ function App() {
       <header className="App-header">
         <h1>Dictionary</h1>
       </header>
+      <main>
+        <Dictionary />
+      </main>
+      <footer className="footer">
+        open source code by{" "}
+        <a href="https://github.com/MpofuMoud/Dictionary-project">Moud Mpofu</a>
+        , and hosted on{" "}
+        <a href="https://delightful-lolly-2b3890.netlify.app/"> Netlify</a>
+      </footer>
     </div>
   );
 }
