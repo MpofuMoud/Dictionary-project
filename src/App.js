@@ -8,7 +8,7 @@ function App() {
         <h1>Dictionary</h1>
       </header>
       <main className="container ">
-        <Dictionary />
+        <Dictionary defaultKeyword="Sunset" />
       </main>
       <footer className="footer text-center">
         open source code by{" "}
