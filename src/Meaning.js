@@ -1,24 +1,19 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Synonyms from "./Synonyms";
+
 import "./Meaning.css";
 
 export default function Meaning(props) {
   return (
-    <div className="meaning">
+    <div className="Meaning">
       <h3>{props.meaning.partOfSpeech}</h3>
-      {props.meaning.definitions.map(function (definition, index) {
-        return (
-          <div key={index}>
-            <div className="definition">{definition.definition}</div>
+      <div className="definition">
+        {props.meaning.definitions[0].definition}
+      </div>
 
-            <div className="example">
-              <em>{definition.example}</em>
-            </div>
-            <Synonyms synonyms={definition.synonyms} />
-          </div>
-        );
-      })}
+      <div className="example">{props.meaning.definitions[0].example}</div>
+      <Synonyms synonyms={props.meaning.synonyms} />
     </div>
   );
 }
