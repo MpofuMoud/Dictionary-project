@@ -1,5 +1,7 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import Meaning from "./Meaning";
+
 export default function Results(props) {
   if (props.results) {
     return (
