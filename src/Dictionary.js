@@ -5,8 +5,9 @@ import Results from "./Results";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-  let [keyword, setKeyword] = useState("");
+  let [keyword, setKeyword] = useState("Sunset");
   let [results, setResults] = useState(null);
+  let [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
     console.log(response.data[0]);
@@ -26,26 +27,34 @@ export default function Dictionary() {
     event.preventDefault();
     search();
   }
-
-  return (
-    <div className="Dctionary">
-      <section>
-        <h1>What word do you want to look up?</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="search"
-            autoFocus={true}
-            placeholder="Enter a word"
-            onChange={handleKeywordChange}
-            defaultValue={PaymentResponse.defaultKeyword}
-          />
-        </form>
-        <div className="hint text-muted">
-          suggested words: sunset, wine, yoga, plant...
-        </div>
-      </section>
-
-      <Results results={results} />
-    </div>
-  );
+  function load() {
+    setLoaded(true);
+    search();
+  }
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section>
+          <h1>What word do you want to look up?</h1>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="search"
+              autoFocus={true}
+              placeholder="Enter a word"
+              onChange={handleKeywordChange}
+              defaultValue={PaymentResponse.defaultKeyword}
+            />
+          </form>
+          <div className="hint text-muted">
+            suggested words: sunset, wine, yoga, plant...
+          </div>
+        </section>
+        <section>
+          <Results results={results} />
+        </section>
+      </div>
+    );
+  } else {
+    load();
+  }
 }
